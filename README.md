@@ -93,3 +93,14 @@ In your Blynk app:
 - If the OLED display fails to initialize, check the I2C connections and address
 - If Blynk connection fails, the system will operate in offline mode
 - For inaccurate temperature readings, check the LM35 sensor connections and power supply
+
+
+## License
+This project is licensed under the [MIT License](LICENSE). Hack it, share it, just give a shoutout to the original repo.
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## Acknowledgments
+  - Adafruit for their excellent display libraries
+  - Blynk for their IoT platform
