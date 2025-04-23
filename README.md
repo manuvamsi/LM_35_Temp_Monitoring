@@ -3,6 +3,9 @@
 ## Overview
 This project is a temperature monitoring and control system built with an ESP32 microcontroller. It uses an LM35 temperature sensor to continuously monitor ambient temperature and automatically controls a relay to manage connected equipment (like cooling or heating systems). The system includes an OLED display for real-time information, LED indicators, alarm functionality, and Blynk IoT integration for remote monitoring and control.
 
+## Circuit Diagram
+![Circuit Diagram](https://github.com/manuvamsi/LM_35_Temp_Monitoring/blob/b465468f6503a9ae3d4b1482b1303875033273a0/LM_35_temp_monitoring/circuit_image.png)
+
 ## Features
 - **Real-time Temperature Monitoring**: Uses LM35 temperature sensor for accurate readings
 - **Automatic Control**: Activates/deactivates a relay based on configurable temperature thresholds
@@ -59,9 +62,34 @@ This project is a temperature monitoring and control system built with an ESP32 
    
    char ssid[] = "your-wifi-ssid";
    char pass[] = "your-wifi-password";
+   
 
 
+## Blynk Project Setup
+In your Blynk app:
+1. Create a new project
+2. Add the following widgets with corresponding virtual pins:
+      - Value Display (V0): For temperature readings
+      - Value Display (V1): For relay status
+      - Value Display (V2): For system status
+      - Value Display (V3): For voltage
+      - Value Display (V4): For overheat status
+      - Button (V5): For toggling system on/off
 
-### Wiring Diagram
-```plaintext
-[Insert ASCII art or link to wiring diagram image]
+## Operation
+- Normal Operation: When temperature is below threshold (30°C), the relay is ON
+- Overheat Condition: When temperature exceeds threshold, relay turns OFF and alarm sounds
+- Manual Control: Press the physical button to toggle system ON/OFF
+- Remote Control: Use the Blynk app to monitor and control the system
+
+## Customization
+  - Temperature threshold can be adjusted by changing const float temperatureThreshold = 30.0;
+  - Alarm sounds and durations can be modified in the corresponding arrays
+  - Update intervals can be adjusted for different components:
+      - Temperature reading: const unsigned long updateInterval = 2000;
+      - Blynk updates: const unsigned long blynkUpdateInterval = 1000;
+
+## Troubleshooting
+- If the OLED display fails to initialize, check the I2C connections and address
+- If Blynk connection fails, the system will operate in offline mode
+- For inaccurate temperature readings, check the LM35 sensor connections and power supply
